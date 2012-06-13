@@ -477,7 +477,7 @@
              <property name="geometry">
               <rect>
                <x>10</x>
-               <y>10</y>
+               <y>20</y>
                <width>181</width>
                <height>71</height>
               </rect>
@@ -502,6 +502,44 @@
               </item>
              </layout>
             </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_6">
+            <property name="title">
+             <string>Unité des degrés</string>
+            </property>
+            <widget class="QWidget" name="verticalLayoutWidget_3">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>20</y>
+               <width>101</width>
+               <height>68</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="QRadioButton" name="radioButtonDegres">
+                <property name="text">
+                 <string>Degrés</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButtonRadians">
+                <property name="text">
+                 <string>Radians</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <zorder>verticalLayoutWidget_3</zorder>
+            <zorder>groupBox_2</zorder>
            </widget>
           </item>
          </layout>

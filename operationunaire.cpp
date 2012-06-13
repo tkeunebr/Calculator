@@ -1,20 +1,6 @@
 #include "operationunaire.h"
 
-OperationUnaire::OperationUnaire()
-{
-}
-
-Eval::Eval(Constante &pc) : OperationUnaire()
+OperationUnaire::OperationUnaire(Constante& pc, int pModeConstante, int pModeComplexes, int pModeDegres) : Operation(pModeConstante, pModeComplexes), mModeDegres(pModeDegres)
 {
     c = &pc;
-}
-
-Constante* Eval::getValue() const {
-    Expression* exp = dynamic_cast<Expression*>(c);
-    if (exp != NULL){
-        //a est une expression
-        //QString exp = expa->getExp();
-
-    }
-    return c;
 }

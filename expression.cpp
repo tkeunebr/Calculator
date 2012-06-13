@@ -1,5 +1,5 @@
 #include "expression.h"
 
-Expression::Expression(QString exp) : mExp(exp)
+Expression::Expression(QString exp) : mExp(exp.simplified())
 {
 }

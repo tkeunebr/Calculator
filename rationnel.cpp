@@ -6,6 +6,24 @@ Rationnel::Rationnel(int pNum, int pDen) : mNum(pNum), mSlashEntre(pDen!=1)
     simplifier();
 }
 
+Rationnel::Rationnel(float pNum, float pDen) : mNum(arrondir(pNum)), mSlashEntre(pDen!=1)
+{
+    setDen(arrondir(pDen));
+    simplifier();
+}
+
+Rationnel::Rationnel(float pNum, int pDen) : mNum(arrondir(pNum)), mSlashEntre(pDen!=1)
+{
+    setDen(pDen);
+    simplifier();
+}
+
+Rationnel::Rationnel(int pNum, float pDen) : mNum(pNum), mSlashEntre(pDen!=1)
+{
+    setDen(arrondir(pDen));
+    simplifier();
+}
+
 void Rationnel::setDen(int pDen){
     if(pDen!=0) mDen = pDen;
     else mDen = 1;
@@ -48,4 +66,10 @@ int Rationnel::pgcd(int a, int b)
         a=t;
     }
     return a;
+}
+
+int Rationnel::arrondir(float f) {
+    float ff = floorf(f);
+    if(f - ff >= 0.5) return ceilf(f);
+    return ff;
 }

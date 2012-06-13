@@ -5,10 +5,18 @@
 #include <QtGui>
 #include <QStack>
 
-#include "complexefactory.h"
+#include "complexereelfactory.h"
+#include "complexerationnelfactory.h"
 #include "rationnelfactory.h"
-#include "operationbinaire.h"
 #include "expression.h"
+#include "calculatriceexception.h"
+#include "evalexception.h"
+#include "trigoexception.h"
+
+
+#include "operationbinaire.h"
+#include "operationunaire.h"
+
 
 namespace Ui {
 class CalculatricePolonaise;
@@ -24,6 +32,8 @@ public:
     const static int MODE_REEL = 2;
     const static int MODE_AVEC_COMPLEXES = 3;
     const static int MODE_SANS_COMPLEXES = 4;
+    const static int MODE_DEGRE = 5;
+    const static int MODE_RADIAN = 6;
 
     explicit CalculatricePolonaise(QWidget *parent = 0);
     ~CalculatricePolonaise();
@@ -37,11 +47,16 @@ private:
     void setConnections();
     void buttonChiffrePressed(int valeurBouton);
     void updateAffichage();
+    void showError(const QString& s);
+    bool erreurOpUnaire();
+    bool erreurOpBinaire();
+
     Constante *nombreCourant;
     ConstanteFactory* mFactory;
 
     int modeConstante;
     int modeComplexes;
+    int modeDeg;
 
     // Clavier Layout dimensions
     QRect dimOperationsGenerales;
@@ -74,6 +89,13 @@ private slots:
     void buttonCancelPressed();
     void buttonExpPressed();
     void buttonDollarPressed();
+    void buttonEvalPressed();
+    void buttonCosPressed();
+    void buttonSinPressed();
+    void buttonTanPressed();
+    void buttonCoshPressed();
+    void buttonSinhPressed();
+    void buttonTanhPressed();
 
     // Checkboxs
     void cacherClavier(int newstate);
@@ -82,6 +104,8 @@ private slots:
     void modeReel();
     void modeAvecComplexes();
     void modeSansComplexes();
+    void modeDegres();
+    void modeRadians();
 
 };
 

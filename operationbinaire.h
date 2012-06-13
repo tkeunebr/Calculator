@@ -1,35 +1,36 @@
 #ifndef OPERATIONBINAIRE_H
 #define OPERATIONBINAIRE_H
 
-#include "complexe.h"
-#include "rationnel.h"
-#include "expression.h"
+#include "operation.h"
+#include "calculatricepolonaise.h"
+#include "calculatriceexception.h"
 
-class OperationBinaire
+class OperationBinaire : public Operation
 {
     protected:
         Constante* a;
         Constante* b;
     public:
+        OperationBinaire(Constante& pa, Constante& pb, int pModeConstante, int pModeComplexes);
         virtual Constante* getValue() const = 0;
-        OperationBinaire();
 };
-
-Constante& operator+(const Rationnel& a, const Rationnel& b);
-Constante& operator+(const Complexe& a, const Complexe& b);
-Constante& operator+(const Complexe& a, const Rationnel& b);
-Constante& operator+(const Rationnel& ra, const Complexe& cb);
-Constante& operator+(const Expression& e1, const Expression& e2);
-Constante& operator+(const Expression& e1, const Rationnel& r);
-Constante& operator+(const Expression& e1, const Complexe& c);
-Constante& operator+(const Rationnel& r, const Expression& e1);
-Constante& operator+(const Complexe& c, const Expression& e1);
 
 
 class Addition : public OperationBinaire {
     public:
-        Addition(Constante& pa, Constante& pb);
+        Addition(Constante& pa, Constante& pb, int pModeConstante, int pModeComplexes);
         virtual Constante* getValue() const;
+    private:
+        Constante* addition(const Rationnel& a, const Rationnel& b) const;
+        Constante* addition(const Complexe& a, const Complexe& b) const;
+        Constante* addition(const Complexe& a, const Rationnel& b) const;
+        Constante* addition(const Rationnel& ra, const Complexe& cb) const;
+        Constante* addition(const Expression& e1, const Expression& e2) const;
+        Constante* addition(const Expression& e1, const Rationnel& r) const;
+        Constante* addition(const Expression& e1, const Complexe& c) const;
+        Constante* addition(const Rationnel& r, const Expression& e1) const;
+        Constante* addition(const Complexe& c, const Expression& e1) const;
+
 };
 
 #endif // OPERATIONBINAIRE_H

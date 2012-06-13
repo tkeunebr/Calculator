@@ -6,7 +6,10 @@
 class Rationnel : public Constante
 {
     public:
-        Rationnel(int pNum=0, int pDen=1);
+        explicit Rationnel(int pNum=0, int pDen=1);
+        explicit Rationnel(float pNum, int pDen=1);
+        explicit Rationnel(float pNum, float pDen);
+        explicit Rationnel(int pNum, float pDen);
 
         // Getters
         int getNum() const { return mNum; }
@@ -33,6 +36,7 @@ class Rationnel : public Constante
         bool mSlashEntre;
 
         // Private methods
+        int arrondir(float f);
         int pgcd(int a, int b);
 };
 

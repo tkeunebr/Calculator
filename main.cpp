@@ -1,5 +1,9 @@
 #include <QtGui/QApplication>
 #include "calculatricepolonaise.h"
+#include <QTextStream>
+#include <cstdio>
+
+QTextStream cout(stdout, QIODevice::WriteOnly);
 
 int main(int argc, char *argv[])
 {
