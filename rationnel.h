@@ -3,6 +3,13 @@
 
 #include "constante.h"
 
+/**
+ * Classe definissant un rationnel et ses methodes. Herite de la classe Constante et definit les methodes declarees virtuelles pures dans celle-ci.
+ * Un rationnel est compose d'un numerateur et d'un denominateur entiers. La methode simplifier permet d'obtenir une forme simple. Appelee lors de la
+ * construction, elle permet d'avoir le plus souvent affaire a des formes simplifiees automatiquement.
+ */
+
+
 class Rationnel : public Constante
 {
     public:
@@ -10,6 +17,7 @@ class Rationnel : public Constante
         explicit Rationnel(float pNum, int pDen=1);
         explicit Rationnel(float pNum, float pDen);
         explicit Rationnel(int pNum, float pDen);
+        explicit Rationnel(const Rationnel& r);
 
         // Getters
         int getNum() const { return mNum; }

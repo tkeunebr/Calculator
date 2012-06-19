@@ -2,7 +2,9 @@
 #define EXPRESSION_H
 
 #include "constante.h"
-
+/**
+ * Classe decrivant une constante de type expression. Reimplemente les mehtodes de Constante.
+ */
 
 class Expression : public Constante
 {

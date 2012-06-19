@@ -14,7 +14,11 @@ HEADERS += \
     calculatriceexception.h \
     typeconstanteexception.h \
     evalexception.h \
-    trigoexception.h
+    trigoexception.h \
+    logmessage.h \
+    logsystem.h \
+    savedstate.h \
+    divexception.h
 
 SOURCES += \
     main.cpp \
@@ -36,7 +40,14 @@ SOURCES += \
     eval.cpp \
     trigo.cpp \
     evalexception.cpp \
-    trigoexception.cpp
+    trigoexception.cpp \
+    logmessage.cpp \
+    logsystem.cpp \
+    savedstate.cpp \
+    soustraction.cpp \
+    multiplication.cpp \
+    division.cpp \
+    divexception.cpp
 
 FORMS += \
     calculatricepolonaise.ui

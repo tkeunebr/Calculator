@@ -24,6 +24,12 @@ Rationnel::Rationnel(int pNum, float pDen) : mNum(pNum), mSlashEntre(pDen!=1)
     simplifier();
 }
 
+Rationnel::Rationnel(const Rationnel& r) {
+    mNum = r.mNum;
+    mDen = r.mDen;
+    mSlashEntre = r.mSlashEntre;
+}
+
 void Rationnel::setDen(int pDen){
     if(pDen!=0) mDen = pDen;
     else mDen = 1;

@@ -12,15 +12,25 @@
 #include "calculatriceexception.h"
 #include "evalexception.h"
 #include "trigoexception.h"
+#include "divexception.h"
 
 
 #include "operationbinaire.h"
 #include "operationunaire.h"
 
+#include "savedstate.h"
+#include "logsystem.h"
+
 
 namespace Ui {
 class CalculatricePolonaise;
 }
+
+/**
+ * Classe principale de l'application. Comporte une pile de pointeurs sur Constante, ainsi qu'un pointeur sur ConstanteFactory instanciée selon le bon type
+ * Les modes sont geres a l'aide de variables de classes statiques constantes.
+ */
+
 
 class CalculatricePolonaise : public QMainWindow
 {
@@ -37,19 +47,29 @@ public:
 
     explicit CalculatricePolonaise(QWidget *parent = 0);
     ~CalculatricePolonaise();
+
+protected:
+    // Events
+    void closeEvent(QCloseEvent *event);
     
 private:
     Ui::CalculatricePolonaise *ui;
     QStack<Constante*> pile;
+    QStack<SavedState> mHistoryStackPrecedent;
+    QStack<SavedState> mHistoryStackSuivant;
     int maxAffichage;
 
     void setShortcuts();
     void setConnections();
+    void setContext();
+    void setFactory();
     void buttonChiffrePressed(int valeurBouton);
     void updateAffichage();
     void showError(const QString& s);
     bool erreurOpUnaire();
     bool erreurOpBinaire();
+    void saveSettings();
+    void saveContext();
 
     Constante *nombreCourant;
     ConstanteFactory* mFactory;
@@ -63,10 +83,18 @@ private:
     QRect dimOperationsPile;
     QRect dimOperations;
 
+    // LogSystem
+    LogSystem* mLogSys;
+    // Settings
+    QSettings* mSettings;
+
 private slots:
     // Actions
     void aPropos();
     void aProposDeQt();
+    void quitterCalculatrice();
+    void undo();
+    void redo();
 
     // PushButtons
     void button0Pressed();
@@ -86,6 +114,11 @@ private slots:
     void buttonVirgulePressed();
     void buttonPushPressed();
     void buttonClearPressed();
+    void buttonDupPressed();
+    void buttonDropPressed();
+    void buttonSumPressed();
+    void buttonMeanPressed();
+    void buttonSwapPressed();
     void buttonCancelPressed();
     void buttonExpPressed();
     void buttonDollarPressed();
@@ -107,6 +140,8 @@ private slots:
     void modeDegres();
     void modeRadians();
 
+    // Spinboxs
+    void setMaxAffichage(int max);
 };
 
 #endif // CALCULATRICEPOLONAISE_H

@@ -1,6 +1,6 @@
 #include "calculatriceexception.h"
 
-CalculatriceException::CalculatriceException(const QString& s) throw() : info(s)
+CalculatriceException::CalculatriceException(const QString& s) throw() : info(s), mLogSys(LogSystem::newInstance())
 {
 }
 

@@ -3,6 +3,14 @@
 
 #include <QString>
 
+
+/**
+ * Classe abstraite representant une Constante generique et les elements communs des Constantes de l'application
+ * Les methodes sont virtuelles pures et permettent la manipulation de constantes en dehors de la classe sans
+ * connaitre leur type exact
+ */
+
+
 class Constante
 {
 public:
@@ -16,6 +24,8 @@ public:
 
     // Getters
     virtual bool isDollarEntre() const = 0;
+
+    virtual ~Constante() {}
 };
 
 #endif // CONSTANTE_H

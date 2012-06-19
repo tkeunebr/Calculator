@@ -5,6 +5,13 @@
 #include "rationnel.h"
 #include <cmath>
 
+/**
+ * Classe definissant un complexe et ses methodes. Herite de la classe Constante et definit les methodes declarees virtuelles pures dans celle-ci.
+ * Un complexe peut etre compose de reels ou de rationnels, d'ou les quatre attributs (une partie reelle et une imaginaire pour chaque type de complexe).
+ * le booleen mIsFloat permet a quel type on a affaire. 
+ */
+
+
 class Complexe : public Constante
 {
     public:
