@@ -79,6 +79,11 @@ ipch/
 *.psess
 *.vsp
 
+#################
+## Qt Creator
+#################
+*.pro
+
 # ReSharper is a .NET coding add-in
 _ReSharper*
 
