@@ -1,4 +1,4 @@
-Calculator ![Calculator](http://thomaskeunebroek.fr/static/img/Calculator-icon.png)
+Calculator ![Calculator](static/calculator_icon.png)
 ==========
 
 Calculator is a Desktop application written in C++ that can deal with various types of numbers: integer, real, rational, complex and even literal expressions.
